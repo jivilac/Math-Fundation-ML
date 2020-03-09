@@ -1,0 +1,486 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\begin_modules
+enumitem
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+PS 1: Mathemathical Foundation of ML
+\end_layout
+
+\begin_layout Author
+Juan Vila
+\end_layout
+
+\begin_layout Section*
+Question 1
+\end_layout
+
+\begin_layout Enumerate
+The matrix represent in row the different elements to build ( Roads, Settlement,
+ Cities and Development Cards), the columns instead are the necessary resources
+ to build those structures(Limber, Wheath, Sheep, Iron and Bricks).
+ The Catan input matrix is a matrix of 4x5.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $CatanInputMatrix=\left(\begin{array}{ccccc}
+1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 0 & 1\\
+0 & 2 & 0 & 3 & 0\\
+0 & 1 & 1 & 1 & 0
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+resume
+\end_layout
+
+\end_inset
+
+ In general the matrix multiplication needed for the calculating the cost
+ of producing is: 
+\begin_inset Formula 
+\[
+Cost=Q*CatanInputMatrix*P
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Where P is a vector of 5X1 with the following values:
+\begin_inset Formula 
+\[
+P=\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+And Q is a vector of 1X4, which indicates the quantities of production of
+ Roads, Settlement, Cities and Development Cards.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Q=\left(\begin{array}{cccc}
+nRoads & nSettlement & nCities & nDvCards\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Then if we replace the vectors into the cost function we get:
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{cccc}
+nRoads & nSettlement & nCities & nDvCards\end{array}\right)*\left(\begin{array}{ccccc}
+1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 0 & 1\\
+0 & 2 & 0 & 3 & 0\\
+0 & 1 & 1 & 1 & 0
+\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Let suppose that we want to build one of each one, then the total cost for
+ each structure is:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{cccc}
+1 & 1 & 1 & 1\end{array}\right)*\left(\begin{array}{ccccc}
+1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 0 & 1\\
+0 & 2 & 0 & 3 & 0\\
+0 & 1 & 1 & 1 & 0
+\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{ccccc}
+1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 0 & 1\\
+0 & 2 & 0 & 3 & 0\\
+0 & 1 & 1 & 1 & 0
+\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)=\left(\begin{array}{c}
+3\\
+11\\
+34\\
+16
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+If we would like to get the total cost we need to multiply by a matrix of
+ 4x1 fill of one's the returning cost vector
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+TotalCost=\left(\begin{array}{cccc}
+1 & 1 & 1 & 1\end{array}\right)*Cost
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+TotalCost=\left(\begin{array}{cccc}
+1 & 1 & 1 & 1\end{array}\right)*\left(\begin{array}{c}
+3\\
+11\\
+34\\
+16
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+TotalCost=3+11+34+16=64
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Suppose you want to build a city, two settlements, and six road lengths
+ connecting them.
+ Again using matrix multiplication, find the total resources required to
+ fill the order.
+ 
+\begin_inset Newline newline
+\end_inset
+
+The cost Q vector take values (6,2,1,0), then the cost calculation would
+ look like:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{cccc}
+6 & 2 & 1 & 0\end{array}\right)*\left(\begin{array}{ccccc}
+1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 0 & 1\\
+0 & 2 & 0 & 3 & 0\\
+0 & 1 & 1 & 1 & 0
+\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{ccccc}
+6+2 & 2+2 & 2 & 3 & 6+2\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{ccccc}
+8 & 4 & 2 & 3 & 8\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+We need 10 unit of Limber, 4 of Weath, 2 of Sheeps, 3 Iron Ore and 8 Brics.
+\end_layout
+
+\begin_layout Enumerate
+Continuing with the operation we can see that we have to multiplying by
+ the price vector we get:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{ccccc}
+8 & 4 & 2 & 3 & 8\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+TotalCost=8+20+6+24+16=74
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Insert CODE
+\end_layout
+
+\begin_layout Section*
+Question 2
+\end_layout
+
+\begin_layout Enumerate
+We can multiply 
+\begin_inset Formula $X^{t}X$
+\end_inset
+
+ using the outer product representation as 
+\begin_inset Formula $\sum_{i=1}^{n}$
+\end_inset
+
+
+\begin_inset Formula $x_{i}x_{i}^{t}$
+\end_inset
+
+, then we can write 
+\begin_inset Formula $C=$
+\end_inset
+
+
+\begin_inset Formula $\frac{\sum_{i=1}^{n}x_{i}x_{i}^{t}}{n}$
+\end_inset
+
+, where 
+\begin_inset Formula $x_{i}x_{i}^{t}$
+\end_inset
+
+ is the multiplication of two matrix of dimension Px1 and 1xP, which have
+ the less possible rank of 1.
+\end_layout
+
+\begin_layout Enumerate
+As every 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ is Lineal independent the rank should be 
+\begin_inset Formula $min(p,n)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+As the 
+\end_layout
+
+\end_body
+\end_document

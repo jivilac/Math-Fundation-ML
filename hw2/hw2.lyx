@@ -1,0 +1,719 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Homework 2
+\end_layout
+
+\begin_layout Author
+Juan Vila
+\end_layout
+
+\begin_layout Section*
+Question1
+\end_layout
+
+\begin_layout Subsection*
+Part A
+\end_layout
+
+\begin_layout Standard
+As we can see that all 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ of the matrix X, are Lineally dependent, then all the rank is equal to
+ three.
+ 
+\end_layout
+
+\begin_layout Standard
+We can see that if we solve the following system of equations:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\alpha+\beta+\gamma=0\\
+\alpha+\beta=0\\
+\alpha=0
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then we can see that the only solution that solve the system is the trivial
+ one then all three 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ are LI.
+\end_layout
+
+\begin_layout Subsection*
+Part B
+\end_layout
+
+\begin_layout Standard
+We can solve for w, and we get:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w=X^{-1}y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 2
+\end_layout
+
+\begin_layout Subsection*
+Part A
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+import numpy as np
+\end_layout
+
+\begin_layout Plain Layout
+x=np.array([[25,0,1],[20,1,2],[40,1,6]]) 
+\end_layout
+
+\begin_layout Plain Layout
+y=np.array([[110],[110],[210]]) 
+\end_layout
+
+\begin_layout Plain Layout
+def solver2(y,x_s): 
+\end_layout
+
+\begin_layout Plain Layout
+solution = np.dot(np.linalg.inv(x_s),y) 
+\end_layout
+
+\begin_layout Plain Layout
+return solution 
+\end_layout
+
+\begin_layout Plain Layout
+solver2(y,x) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part B
+\end_layout
+
+\begin_layout Standard
+As the issue is in the second column that are the new unkwows and as we
+ know the actual value of w, we nee to solve the following system:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{ccc}
+25 & x & 1\\
+20 & y & 2\\
+40 & z & 6
+\end{array}\right]\left[\begin{array}{c}
+4\\
+9\\
+4
+\end{array}\right]=\left[\begin{array}{c}
+110\\
+110\\
+210
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+4\left[\begin{array}{c}
+25\\
+20\\
+40
+\end{array}\right]+9\left[\begin{array}{c}
+x\\
+y\\
+z
+\end{array}\right]+4\left[\begin{array}{c}
+1\\
+2\\
+6
+\end{array}\right]=\left[\begin{array}{c}
+110\\
+110\\
+210
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+9\left[\begin{array}{c}
+x\\
+y\\
+z
+\end{array}\right]=\left[\begin{array}{c}
+110\\
+110\\
+210
+\end{array}\right]-4\left[\begin{array}{c}
+26\\
+22\\
+46
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+x\\
+y\\
+z
+\end{array}\right]=\left[\begin{array}{c}
+\frac{6}{9}\\
+\frac{22}{9}\\
+\frac{26}{9}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part C
+\end_layout
+
+\begin_layout Standard
+We cannot estimate the result because we can see that 
+\begin_inset Formula $v_{2}+v_{3}=v_{1}$
+\end_inset
+
+, this implies that we cannot take the inverse of 
+\begin_inset Formula $X^{T}X$
+\end_inset
+
+ because we have perfect collienallity, this will generate that the Least
+ Squares Estimator or solving 
+\begin_inset Formula $w=X^{-1}y$
+\end_inset
+
+ cannot be estimated .
+ But we could drop 
+\begin_inset Formula $v1$
+\end_inset
+
+ from the model, then if we try to apply Least Squares(LS) we dont have
+ any problem as n>p, where n is the number of cereals and p the nutrients
+ in the cereals.
+ Then we could estimate the true 
+\begin_inset Formula $w$
+\end_inset
+
+ for the four of each component.
+ If we apply LS we got:
+\begin_inset Formula $w=[4,4,9,4]$
+\end_inset
+
+, this are the true values of w that we get in the previous part.
+\end_layout
+
+\begin_layout Section*
+Question 3
+\end_layout
+
+\begin_layout Subsection*
+A- 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(w)=w^{T}(2x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{df(w)}{dw}=(2x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+B-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(w)=3w^{T}x−0.5x^{T}w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we know that 
+\begin_inset Formula $a^{t}b=b^{t}a$
+\end_inset
+
+, the we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(w)=2.5w^{T}x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\frac{df(w)}{dw}=2.5x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+C-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(w)=w^{T}\left[\begin{array}{cc}
+1 & 2\\
+3 & 4
+\end{array}\right]w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can use the property that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\frac{dx^{T}Qx}{dw}=Qx+Q^{T}x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\frac{df(w)}{dw}=\left[\begin{array}{cc}
+1 & 2\\
+3 & 4
+\end{array}\right]w+\left[\begin{array}{cc}
+1 & 3\\
+2 & 4
+\end{array}\right]w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\frac{df(w)}{dw}=\left[\begin{array}{cc}
+2 & 5\\
+5 & 8
+\end{array}\right]w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+D-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(w)=w^{T}\left[\begin{array}{cc}
+1 & 2.5\\
+2.5 & 4
+\end{array}\right]w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\frac{df(w)}{dw}=2\left[\begin{array}{cc}
+1 & 2.5\\
+2.5 & 4
+\end{array}\right]w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\frac{df(w)}{dw}=\left[\begin{array}{cc}
+2 & 5\\
+5 & 8
+\end{array}\right]w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question4
+\end_layout
+
+\begin_layout Standard
+In the latter part of the document.
+\end_layout
+
+\begin_layout Section*
+Question 5
+\end_layout
+
+\begin_layout Subsection*
+A- 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=\sum_{i=1}^{d}w_{i}x^{i}+w_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+B-
+\end_layout
+
+\begin_layout Standard
+We can build one equation for every sample (x_i,y_i) that we have in the
+ data set, the for any polynomial d, the n equations are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\sum_{i=0}^{d}w_{i}x_{1}^{i}=y_{1}\\
+\vdots\\
+\vdots\\
+\sum_{i=0}^{d}w_{i}x_{n}^{i}=y_{n}
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then, if we transform this in vectors, in the right side we will have the
+ y vector and in the left the p(z) for a especific n.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{c}
+\sum_{i=0}^{d}w_{i}x_{1}^{i}\\
+\vdots\\
+\vdots\\
+\sum_{i=0}^{d}w_{i}x_{1}^{i}
+\end{array}\right]=\left[\begin{array}{c}
+y_{1}\\
+\vdots\\
+\vdots\\
+y_{n}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we can see that every summation is multiplication of 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ and the vector w, then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{ccccc}
+1 & x_{1} & x_{1}^{2} & \cdots & x_{1}^{d}\\
+\vdots & \vdots & \vdots & \cdots & \vdots\\
+\vdots & \vdots & \vdots & \cdots & \vdots\\
+1 & x_{n} & x_{n}^{2} & \cdots & x_{n}^{d}
+\end{array}\right]\left[\begin{array}{c}
+w_{0}\\
+\vdots\\
+\vdots\\
+w_{d}
+\end{array}\right]=\left[\begin{array}{c}
+y_{1}\\
+\vdots\\
+\vdots\\
+y_{n}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

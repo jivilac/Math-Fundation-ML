@@ -1,0 +1,997 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\begin_modules
+enumitem
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+PS 1: Mathemathical Foundation of ML
+\end_layout
+
+\begin_layout Author
+Juan Vila
+\end_layout
+
+\begin_layout Section*
+Question 1
+\end_layout
+
+\begin_layout Enumerate
+The matrix represent in row the different elements to build ( Roads, Settlement,
+ Cities and Development Cards), the columns instead are the necessary resources
+ to build those structures(Limber, Wheath, Sheep, Iron and Bricks).
+ The Catan input matrix is a matrix of 4x5.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula $CatanInputMatrix=\left(\begin{array}{ccccc}
+1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 0 & 1\\
+0 & 2 & 0 & 3 & 0\\
+0 & 1 & 1 & 1 & 0
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+resume
+\end_layout
+
+\end_inset
+
+ In general the matrix multiplication needed for the calculating the cost
+ of producing is: 
+\begin_inset Formula 
+\[
+Cost=Q*CatanInputMatrix*P
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Where P is a vector of 5X1 with the following values:
+\begin_inset Formula 
+\[
+P=\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+And Q is a vector of 1X4, which indicates the quantities of production of
+ Roads, Settlement, Cities and Development Cards.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Q=\left(\begin{array}{cccc}
+nRoads & nSettlement & nCities & nDvCards\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Then if we replace the vectors into the cost function we get:
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{cccc}
+nRoads & nSettlement & nCities & nDvCards\end{array}\right)*\left(\begin{array}{ccccc}
+1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 0 & 1\\
+0 & 2 & 0 & 3 & 0\\
+0 & 1 & 1 & 1 & 0
+\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Let suppose that we want to build one of each one, then the total cost for
+ each structure is:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{cccc}
+1 & 1 & 1 & 1\end{array}\right)*\left(\begin{array}{ccccc}
+1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 0 & 1\\
+0 & 2 & 0 & 3 & 0\\
+0 & 1 & 1 & 1 & 0
+\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{ccccc}
+1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 0 & 1\\
+0 & 2 & 0 & 3 & 0\\
+0 & 1 & 1 & 1 & 0
+\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)=\left(\begin{array}{c}
+3\\
+11\\
+34\\
+16
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+If we would like to get the total cost we need to multiply by a matrix of
+ 4x1 fill of one's the returning cost vector
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+TotalCost=\left(\begin{array}{cccc}
+1 & 1 & 1 & 1\end{array}\right)*Cost
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+TotalCost=\left(\begin{array}{cccc}
+1 & 1 & 1 & 1\end{array}\right)*\left(\begin{array}{c}
+3\\
+11\\
+34\\
+16
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+TotalCost=3+11+34+16=64
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Suppose you want to build a city, two settlements, and six road lengths
+ connecting them.
+ Again using matrix multiplication, find the total resources required to
+ fill the order.
+ 
+\begin_inset Newline newline
+\end_inset
+
+The cost Q vector take values (6,2,1,0), then the cost calculation would
+ look like:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{cccc}
+6 & 2 & 1 & 0\end{array}\right)*\left(\begin{array}{ccccc}
+1 & 0 & 0 & 0 & 1\\
+1 & 1 & 1 & 0 & 1\\
+0 & 2 & 0 & 3 & 0\\
+0 & 1 & 1 & 1 & 0
+\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{ccccc}
+6+2 & 2+2 & 2 & 3 & 6+2\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{ccccc}
+8 & 4 & 2 & 3 & 8\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+We need 10 unit of Limber, 4 of Weath, 2 of Sheeps, 3 Iron Ore and 8 Brics.
+\end_layout
+
+\begin_layout Enumerate
+Continuing with the operation we can see that we have to multiplying by
+ the price vector we get:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Cost=\left(\begin{array}{ccccc}
+8 & 4 & 2 & 3 & 8\end{array}\right)*\left(\begin{array}{c}
+1\\
+5\\
+3\\
+8\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+TotalCost=8+20+6+24+16=74
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Insert CODE
+\end_layout
+
+\begin_layout Section*
+Question 2
+\end_layout
+
+\begin_layout Enumerate
+We can multiply 
+\begin_inset Formula $X^{t}X$
+\end_inset
+
+ using the outer product representation as 
+\begin_inset Formula $\sum_{i=1}^{n}$
+\end_inset
+
+
+\begin_inset Formula $x_{i}x_{i}^{t}$
+\end_inset
+
+, then we can write 
+\begin_inset Formula $C=$
+\end_inset
+
+
+\begin_inset Formula $\frac{\sum_{i=1}^{n}x_{i}x_{i}^{t}}{n}$
+\end_inset
+
+, where 
+\begin_inset Formula $x_{i}x_{i}^{t}$
+\end_inset
+
+ is the multiplication of two matrix of dimension Px1 and 1xP, which have
+ the less possible rank of 1.
+\end_layout
+
+\begin_layout Enumerate
+As every 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ is Lineal independent, and the dimension of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $X^{t}X$
+\end_inset
+
+ is PxP,
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ then the rank
+\begin_inset Formula $(X^{t}X)$
+\end_inset
+
+ should be the min(p,p) which is equal to p.
+\end_layout
+
+\begin_layout Section*
+Question 3
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula 
+\[
+X=\left[\begin{array}{ccccc}
+1 & 0 & 1 & 0 & 1\\
+0 & 1 & 0 & 1 & 1\\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & 1 & 1
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The rank is at least 4, but as the 4th row is full of zero we know that
+ the rank is 3.
+ Another way to do it is to swicth the last row with third row and we have
+ a row-echelon matrix with three pivot vectors.
+ Also, we see that 
+\begin_inset Formula $v_{5}=v_{2}+v_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{4}=v_{2}+v_{3}-v_{1}$
+\end_inset
+
+, then we can argue that the only LI vectors in the matrix X are 
+\begin_inset Formula $v_{1,},v_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{3}$
+\end_inset
+
+.
+ Then, are three LI vectors then the rank is equal to three.
+\end_layout
+
+\begin_layout Enumerate
+\noindent
+\align block
+The result of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $X^{t}X$
+\end_inset
+
+ is :
+\begin_inset Newline newline
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\[
+X^{t}X=\left[\begin{array}{ccccc}
+1 & 0 & 1 & 0 & 1\\
+0 & 1 & 0 & 1 & 1\\
+1 & 0 & 1 & 0 & 1\\
+0 & 1 & 0 & 2 & 2\\
+1 & 1 & 1 & 2 & 3
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+With a simple examination, we can see that 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+ is equal to 
+\begin_inset Formula $v_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{1}+v_{4}=v_{5}$
+\end_inset
+
+, then there is three LI vectors, then the 
+\begin_inset Formula $rank\left(X^{t}X\right)=3$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+With a simple examination we see that 
+\begin_inset Formula $v_{5}=v_{2}+v_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{4}=v_{2}+v_{3}-v_{1}$
+\end_inset
+
+, then we can argue that the only LI vectors in the matrix X are 
+\begin_inset Formula $v_{1,},v_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section*
+Question 4
+\end_layout
+
+\begin_layout Enumerate
+For calculating which vectors are LI, we need to show that there is a solution
+ different to the trivial to the following system:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+c_{1}\left(\begin{array}{c}
+.92\\
+-.92\\
+.92\\
+-.92
+\end{array}\right)+c_{2}\left(\begin{array}{c}
+.92\\
+.92\\
+-.92\\
+-.92
+\end{array}\right)=0
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+.92 & .92\\
+-.92 & .92\\
+.92 & -.92\\
+-.92 & -.92
+\end{array}\right)\left(\begin{array}{c}
+c_{1}\\
+c_{2}
+\end{array}\right)=\left(\begin{array}{c}
+0\\
+0\\
+0\\
+0
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{array}{c}
+.92c_{1}+.92c_{2}=0\\
+-.92c_{1}+.92c_{2}=0\\
+.92c_{1}-.92c_{2}=0\\
+-.92c_{1}-.92c_{2}=0
+\end{array}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Then we divide all equation by 0.92.
+ We get the following result:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+(1)c_{1}+c_{2}=0\\
+(2)-c_{1}+c_{2}=0\\
+(3)c_{1}-c_{2}=0\\
+(4)-c_{1}-c_{2}=0
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+If we add up eq.1 and eq.2 we get that
+\begin_inset Formula $2c_{2}=0$
+\end_inset
+
+ -> 
+\begin_inset Formula $c_{2}=0$
+\end_inset
+
+, this imply that 
+\begin_inset Formula $c_{1}=0$
+\end_inset
+
+, then we have not found anoy other solution that not is the trivial one
+ then both vectors are LI.
+\end_layout
+
+\begin_layout Enumerate
+For calculating which vectors are LI, we need to show that there is a solution
+ different to the trivial to the following system:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{array}{c}
+(1)a+b+c=0\\
+(2)-a+b-c=0\\
+(3)a-b-c=0
+\end{array}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+if we add up 1 and 2, we get 
+\begin_inset Formula $2b=0$
+\end_inset
+
+, the replacing this result into 3, we get that 
+\begin_inset Formula $a=c$
+\end_inset
+
+, then replacing this two results into 1, we get that 
+\begin_inset Formula $2a=0$
+\end_inset
+
+ ->
+\begin_inset Formula $a=0,$
+\end_inset
+
+then 
+\begin_inset Formula $a=b=c=0.$
+\end_inset
+
+Then the only solution is the trivial one then the three vectors are LI.
+\end_layout
+
+\begin_layout Enumerate
+We have to see which of the vectors of the following matrix are independent:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+A=\left[\begin{array}{ccc}
+1 & 2 & 2\\
+3 & 4 & 5\\
+5 & 6 & 8
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Then we have to show that exist a different solution that the trivial one
+ for the following system 
+\begin_inset Formula $Ax=0$
+\end_inset
+
+, where 
+\begin_inset Formula $x=\left[\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right]$
+\end_inset
+
+:
+\begin_inset Newline newline
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\[
+\begin{array}{c}
+(1)a+2b+2c=0\\
+(2)3a+4b+5c=0\\
+(3)5a+6b+8c=0
+\end{array}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+From eq.2 we can solve for b and get the following result, 
+\begin_inset Formula $(4)b=-\frac{3a+5c}{4},$
+\end_inset
+
+ then if we replace in eq.1 we get:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a-\frac{3a+5c}{2}+2c=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+-\frac{a}{2}-\frac{c}{2}=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+(5)a=-c
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Now, if we replace eq5 into eq 4 we get that 
+\begin_inset Formula $(6)b=-\frac{1}{2}c$
+\end_inset
+
+.
+ Then if we replace 5 and 6 into the whole system for find a value for c,
+ it clear the three equation meaning that we have find a non-trivial solution
+ for the system, this imply that the columns are LD, and LI columns are
+ 
+\begin_inset Formula $v_{1},v_{2}=\left\{ \begin{array}{c}
+1\\
+3\\
+4
+\end{array}\right\} ,\left\{ \begin{array}{c}
+2\\
+4\\
+6
+\end{array}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Now for find the rank of the following matrix:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[\begin{array}{cc}
+5 & 2\\
+-5 & 2\\
+5 & -2
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ we can see that the should have a rank of at least 2 is matrix of 3 by
+ 2.
+ Now we have to see if there is some column that is LD with another one.
+ For doing this we requiere to see if 
+\begin_inset Formula $a*v_{1}=v_{2}$
+\end_inset
+
+, this is no feasible because in row one, we get that 
+\begin_inset Formula $5a=2$
+\end_inset
+
+->
+\begin_inset Formula $a=\frac{2}{5}$
+\end_inset
+
+, then from row two we get that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $a=-\frac{2}{5}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+.This imply, that 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ are LI, then the rank is 2.
+\end_layout
+
+\end_body
+\end_document

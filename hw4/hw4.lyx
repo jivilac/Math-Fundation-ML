@@ -1,0 +1,1470 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+HW4
+\end_layout
+
+\begin_layout Author
+Juan Vila
+\end_layout
+
+\begin_layout Section*
+Question 1
+\end_layout
+
+\begin_layout Subsection*
+Part a
+\end_layout
+
+\begin_layout Standard
+For finding the projection the P onto V, we need to create a matrix that
+ represent the basis.
+ For doing this we 
+\begin_inset Formula $x_{1}=x_{2}+2x_{3}$
+\end_inset
+
+, this implies that 
+\begin_inset Formula $A=\left[\begin{array}{cc}
+x_{2}+2x_{3} & x_{2}+2x_{3}\\
+x_{2} & x_{2}\\
+x_{3} & x_{3}
+\end{array}\right]$
+\end_inset
+
+, then for 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+ we are going to assume 
+\begin_inset Formula $x_{3}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{2}=1$
+\end_inset
+
+ and for 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ we are going to assume that 
+\begin_inset Formula $x_{2}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{3}=1$
+\end_inset
+
+ then A:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\left[\begin{array}{cc}
+1 & 2\\
+1 & 0\\
+0 & 1
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With this A, we are going to calculate the proyection matrix as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P=A(A^{T}A)^{-1}A^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P=\left[\begin{array}{cc}
+1 & 2\\
+1 & 0\\
+0 & 1
+\end{array}\right]\left[\left[\begin{array}{cc}
+1 & 2\\
+1 & 0\\
+0 & 1
+\end{array}\right]^{T}\left[\begin{array}{cc}
+1 & 2\\
+1 & 0\\
+0 & 1
+\end{array}\right]\right]^{-1}\left[\begin{array}{cc}
+1 & 2\\
+1 & 0\\
+0 & 1
+\end{array}\right]^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P=\left[\begin{array}{cc}
+1 & 2\\
+1 & 0\\
+0 & 1
+\end{array}\right]\left[\begin{array}{cc}
+2 & 2\\
+2 & 5
+\end{array}\right]^{-1}\left[\begin{array}{cc}
+1 & 2\\
+1 & 0\\
+0 & 1
+\end{array}\right]^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We know that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left[\begin{array}{cc}
+2 & 2\\
+2 & 5
+\end{array}\right]^{-1}=\frac{1}{6}\left[\begin{array}{cc}
+5 & -2\\
+-2 & 2
+\end{array}\right]$
+\end_inset
+
+, then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P=\left[\begin{array}{cc}
+1 & 2\\
+1 & 0\\
+0 & 1
+\end{array}\right]\frac{1}{6}\left[\begin{array}{cc}
+5 & -2\\
+-2 & 2
+\end{array}\right]\left[\begin{array}{cc}
+1 & 2\\
+1 & 0\\
+0 & 1
+\end{array}\right]^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P=\frac{1}{6}\left[\begin{array}{cc}
+1 & 2\\
+1 & 0\\
+0 & 1
+\end{array}\right]\left[\begin{array}{ccc}
+1 & 5 & -2\\
+2 & -2 & 2
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P=\frac{1}{6}\left[\begin{array}{ccc}
+5 & 1 & 2\\
+1 & 5 & -2\\
+2 & -2 & 2
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part b
+\end_layout
+
+\begin_layout Standard
+The rank of the matrix is two, because we can see than 
+\begin_inset Formula $\frac{1}{6}\left(v_{1}\frac{1}{2}-\frac{1}{2}v_{2}\right)=\frac{v_{3}}{6}$
+\end_inset
+
+, this implies that 
+\begin_inset Formula $v_{3}$
+\end_inset
+
+is LD, meaning that the rank is 2.
+\end_layout
+
+\begin_layout Subsection*
+Part c
+\end_layout
+
+\begin_layout Standard
+now for calculating the distance we apply the following formula: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\Vert \left[\begin{array}{c}
+1\\
+1\\
+1
+\end{array}\right]-P\left[\begin{array}{c}
+1\\
+1\\
+1
+\end{array}\right]\right\Vert _{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\Vert \left[\begin{array}{c}
+1\\
+1\\
+1
+\end{array}\right]-\frac{1}{6}\left[\begin{array}{ccc}
+5 & 1 & 2\\
+1 & 5 & -2\\
+2 & -2 & 2
+\end{array}\right]\left[\begin{array}{c}
+1\\
+1\\
+1
+\end{array}\right]\right\Vert _{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\Vert \left[\begin{array}{c}
+1\\
+1\\
+1
+\end{array}\right]-\left[\begin{array}{c}
+8/6\\
+4/6\\
+2/6
+\end{array}\right]\right\Vert _{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\Vert \left[\begin{array}{c}
+-1/3\\
+1/3\\
+2/3
+\end{array}\right]\right\Vert _{2}=\sqrt{\frac{1}{9}+\frac{1}{9}+\frac{4}{9}}=\sqrt{\frac{2}{3}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 2
+\end_layout
+
+\begin_layout Subsection*
+Part a
+\end_layout
+
+\begin_layout Standard
+The easiest orthonormal basis for X is 
+\begin_inset Formula $[e_{1},e_{2}]$
+\end_inset
+
+, because as 
+\begin_inset Formula $x_{1}=3e_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{2}=3e_{1}+4e_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{3}=\sqrt{2}e_{2}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection*
+Part b
+\end_layout
+
+\begin_layout Subsubsection*
+b.i The projection matrix P onto V will be :
+\begin_inset Formula 
+\[
+P=V(V^{T}V)^{-1}V^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+b.ii The add up of the distances squared will be for any 
+\begin_inset Formula $v$
+\end_inset
+
+ is:
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\[
+\left\Vert v-Pv\right\Vert _{2}^{2}=\left[v-Pv\right]^{T}\left[v-Pv\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\[
+\left\Vert v-Pv\right\Vert _{2}^{2}=v^{T}\left[I-P\right]^{T}\left[I-P\right]v
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+we know that 
+\begin_inset Formula $P^{T}+P=I$
+\end_inset
+
+ and P^TP=P, then can replace into the equation:
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\[
+\left\Vert v-Pv\right\Vert _{2}^{2}=v^{T}\left[I-I+P^{T}\right]^{T}\left[I-I+P^{T}\right]v
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\[
+\left\Vert v-Pv\right\Vert _{2}^{2}=v^{T}Pv
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we replace v for x and we have the same the distance square for every
+ 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\[
+\left\Vert x-Px\right\Vert _{2}^{2}=\sum_{i=1}^{3}x_{i}^{T}Px_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+b.iii
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\[
+\left[\begin{array}{cc}
+3 & 0\end{array}\right]P\left[\begin{array}{c}
+3\\
+0
+\end{array}\right]+\left[\begin{array}{cc}
+3 & 4\end{array}\right]P\left[\begin{array}{c}
+3\\
+4
+\end{array}\right]+\left[\begin{array}{cc}
+0 & \sqrt{2}\end{array}\right]P\left[\begin{array}{c}
+0\\
+\sqrt{2}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\[
+\left[\begin{array}{cc}
+3 & 0\end{array}\right]V(V^{T}V)^{-1}V^{T}\left[\begin{array}{c}
+3\\
+0
+\end{array}\right]+\left[\begin{array}{cc}
+3 & 4\end{array}\right]V(V^{T}V)^{-1}V^{T}\left[\begin{array}{c}
+3\\
+4
+\end{array}\right]+\left[\begin{array}{cc}
+0 & \sqrt{2}\end{array}\right]V(V^{T}V)^{-1}V^{T}\left[\begin{array}{c}
+0\\
+\sqrt{2}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we know that 
+\begin_inset Formula $\left\Vert v\right\Vert _{2}=1,$
+\end_inset
+
+implies that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $V^{T}V=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\[
+\left[\begin{array}{cc}
+3 & 0\end{array}\right]VV^{T}\left[\begin{array}{c}
+3\\
+0
+\end{array}\right]+\left[\begin{array}{cc}
+3 & 4\end{array}\right]VV^{T}\left[\begin{array}{c}
+3\\
+4
+\end{array}\right]+\left[\begin{array}{cc}
+0 & \sqrt{2}\end{array}\right]VV^{T}\left[\begin{array}{c}
+0\\
+\sqrt{2}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also, we can convert V into 
+\begin_inset Formula $V=\left[\begin{array}{c}
+v_{1}\\
+v_{2}
+\end{array}\right]$
+\end_inset
+
+, and 
+\begin_inset Formula $VV^{T}=\left[\begin{array}{cc}
+v_{1}^{2} & v_{1}v_{2}\\
+v_{1}v_{2} & v_{2}^{2}
+\end{array}\right]$
+\end_inset
+
+, then:
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\[
+\left[\begin{array}{cc}
+3 & 0\end{array}\right]\left[\begin{array}{cc}
+v_{1}^{2} & v_{1}v_{2}\\
+v_{1}v_{2} & v_{2}^{2}
+\end{array}\right]\left[\begin{array}{c}
+3\\
+0
+\end{array}\right]+\left[\begin{array}{cc}
+3 & 4\end{array}\right]\left[\begin{array}{cc}
+v_{1}^{2} & v_{1}v_{2}\\
+v_{1}v_{2} & v_{2}^{2}
+\end{array}\right]\left[\begin{array}{c}
+3\\
+4
+\end{array}\right]+\left[\begin{array}{cc}
+0 & \sqrt{2}\end{array}\right]\left[\begin{array}{cc}
+v_{1}^{2} & v_{1}v_{2}\\
+v_{1}v_{2} & v_{2}^{2}
+\end{array}\right]\left[\begin{array}{c}
+0\\
+\sqrt{2}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\[
+9v_{1}^{2}+9v_{1}^{2}+24v_{1}v_{2}+16v_{2}^{2}+2v_{2}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\[
+18v_{1}^{2}+24v_{1}v_{2}+18v_{2}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We know that 
+\begin_inset Formula $v_{1}^{2}+v_{2}^{2}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{2}^{2}=\sqrt{1-v_{1}^{2}}$
+\end_inset
+
+we replace this fact in the equation and take the gradient of this result:
+\end_layout
+
+\begin_layout Subsubsection*
+\begin_inset Formula 
+\[
+18+24v_{1}\sqrt{1-v_{1}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\left\{ v_{1}\right\} :-\frac{2*24v_{1}^{2}}{2\sqrt{1-v_{1}^{2}}}+24\sqrt{1-v_{1}^{2}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{v_{1}^{2}}{\sqrt{1-v_{1}^{2}}}=\sqrt{1-v_{1}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2v_{1}^{2}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v_{1}=\frac{1}{\sqrt{2}}\rightarrow v_{2}=\frac{1}{\sqrt{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part c
+\end_layout
+
+\begin_layout Standard
+For building matrix U, we use the result from the previous part we know
+ that 
+\begin_inset Formula $U_{1}=[v_{1},v_{2}]^{T}$
+\end_inset
+
+, for obtain 
+\begin_inset Formula $U_{2}=[a,b]^{T}$
+\end_inset
+
+, we know that 
+\begin_inset Formula $U_{1}^{T}U_{2}=0$
+\end_inset
+
+and 
+\begin_inset Formula $U_{2}^{T}U_{2}=1$
+\end_inset
+
+ , then we need to solve the following system:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{array}{c}
+v_{1}a+v_{2}b=0\\
+a^{2}+b^{2}=1
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then from eq 1 we know that 
+\begin_inset Formula $b=-a,$
+\end_inset
+
+ and replacing into the second one we get that 
+\begin_inset Formula $a=\frac{\ensuremath{1}}{\sqrt{2}}\rightarrow b=-\frac{1}{\sqrt{2}},$
+\end_inset
+
+ then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U=\left[\begin{array}{cc}
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now for getting the parameters of 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ we need to calculate the sum of the residuals of projection of 
+\begin_inset Formula $U_{i}$
+\end_inset
+
+ onto to X.
+ For doing this we follow the folowing formula: 
+\begin_inset Formula $\sigma_{j}=\sqrt{\sum_{i=1}^{3}\left(x_{i}^{T}U_{j}\right)^{2}}$
+\end_inset
+
+, then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{1}=\sqrt{\left(\left[\begin{array}{cc}
+3 & 0\end{array}\right]\left[\begin{array}{c}
+\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}
+\end{array}\right]\right)^{2}+\left(\left[\begin{array}{cc}
+3 & 4\end{array}\right]\left[\begin{array}{c}
+\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}
+\end{array}\right]\right)^{2}+\left(\left[\begin{array}{cc}
+0 & \sqrt{2}\end{array}\right]\left[\begin{array}{c}
+\frac{1}{\sqrt{2}}\\
+\frac{1}{\sqrt{2}}
+\end{array}\right]\right)^{2}}=\sqrt{30}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{2}=\sqrt{\left(\left[\begin{array}{cc}
+3 & 0\end{array}\right]\left[\begin{array}{c}
+\frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{2}}
+\end{array}\right]\right)^{2}+\left(\left[\begin{array}{cc}
+3 & 4\end{array}\right]\left[\begin{array}{c}
+\frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{2}}
+\end{array}\right]\right)^{2}+\left(\left[\begin{array}{cc}
+0 & \sqrt{2}\end{array}\right]\left[\begin{array}{c}
+\frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{2}}
+\end{array}\right]\right)^{2}}=\sqrt{6}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\begin_inset Formula $\Sigma=\left[\begin{array}{cc}
+\sqrt{30} & 0\\
+0 & \sqrt{6}
+\end{array}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Question 3
+\end_layout
+
+\begin_layout Subsection*
+Part a
+\end_layout
+
+\begin_layout Standard
+We can see, it's possible to decompose A into a SDV
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=U\sum V^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\left[\begin{array}{ccc}
+| &  & |\\
+U_{1} & \cdots & U_{n}\\
+| &  & |
+\end{array}\right]\left[\begin{array}{ccc}
+\sigma_{1}\\
+ & \ddots\\
+ &  & \sigma_{d}
+\end{array}\right]\left[\begin{array}{ccc}
+- & V_{1} & -\\
+ & \vdots\\
+- & V_{d} & -
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We know that the product of 
+\begin_inset Formula $U\sum$
+\end_inset
+
+ is :
+\begin_inset Formula $\sum_{i=1}\left[\begin{array}{c}
+|\\
+U_{i}\\
+|
+\end{array}\right]\left[\begin{array}{cccc}
+\sigma_{i} & 0 & ... & 0\end{array}\right]$
+\end_inset
+
+, where the dimensions are nx1 and 1xd(rank- 1).
+ But as the elements of 
+\begin_inset Formula $\sum$
+\end_inset
+
+ that are not in the diagonal provokes that much of the n by d matrix are
+ zero.
+ Then taking into consideration we can show that, 
+\begin_inset Formula $U\sum$
+\end_inset
+
+ = 
+\begin_inset Formula $\left[\begin{array}{ccc}
+| &  & |\\
+\sigma_{1}U_{1} & \cdots & \sigma_{n}U_{n}\\
+| &  & |
+\end{array}\right]$
+\end_inset
+
+, then if we use the outer product distribution again we transform the SVD
+ decompomspotion in the following form:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\sum_{i=1}^{min(n,d)}\sigma_{i}\left[\begin{array}{c}
+|\\
+U_{i}\\
+|
+\end{array}\right]\left[\begin{array}{ccc}
+- & V_{i} & -\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part b
+\end_layout
+
+\begin_layout Standard
+Since the best basis for the best subspace of the SVM matrix is the one
+ with higher singular value, this imply that is 
+\begin_inset Formula $u_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part c
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X^{T}=(U\Sigma V^{T})^{T}=V\Sigma^{T}U^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $XX^{T}=U\Sigma V^{T}V\Sigma^{T}U^{T}=U\Sigma^{2}U^{T}$
+\end_inset
+
+, since V is orthonormal then 
+\begin_inset Formula $V^{T}V=I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X^{T}X=V\Sigma^{T}U^{T}U\Sigma V^{T}=V\Sigma^{2}V^{T}$
+\end_inset
+
+, since U is othonormal then 
+\begin_inset Formula $U^{T}U=I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Part d
+\end_layout
+
+\begin_layout Subsubsection*
+d.i Since Xw=0 we could argue that this already a basis if we cannot find
+ a w vector such Xw=0 where 
+\begin_inset Formula $w!=0.$
+\end_inset
+
+ Meaning that all columns in X are LI.
+ In the other case, if we find some solution different to the trivial one
+ we could construct one Basis building the basis as part of the other vectors
+ LI of the columns X.
+\end_layout
+
+\begin_layout Subsubsection*
+d.ii We know that the problem in this case is :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\widetilde{w}=argmin\left(\widetilde{y}-\Sigma\widetilde{w}\right)^{T}\left(\widetilde{y}-\Sigma\widetilde{w}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We know that 
+\begin_inset Formula $\widetilde{y}=U^{T}y$
+\end_inset
+
+ and 
+\begin_inset Formula $\widetilde{w}=V^{T}w$
+\end_inset
+
+, if we replace in the problem we get:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\widetilde{w}=argmin\left(U^{T}y-\Sigma V^{T}w\right)^{T}\left(U^{T}y-\Sigma V^{T}w\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+y^{T}U^{T}Uy-2V\Sigma^{T}U^{T}yw+w^{T}V\Sigma^{T}\Sigma V^{T}w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+y^{T}y-2V\Sigma^{T}U^{T}yw+w^{T}V\Sigma^{T}\Sigma V^{T}w
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then using the fact that 
+\begin_inset Formula $U^{T}U=I$
+\end_inset
+
+, 
+\begin_inset Formula $X^{T}=(U\Sigma V^{T})^{T}=V\Sigma^{T}U^{T}$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $X^{T}X=V\Sigma^{T}U^{T}U\Sigma V^{T}=V\Sigma^{2}V^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+y^{T}y-2X^{T}yw+w^{T}X^{T}Xw
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which is the same as :
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\left(y-Xw\right)^{T}\left(y-Xw\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can see that using this results the problem given is exactly the same
+ for regular OLS.
+ Now if we continue solving with using the replacements we get:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\widetilde{w}=argmin\left(\widetilde{y}-\Sigma\widetilde{w}\right)^{T}\left(\widetilde{y}-\Sigma\widetilde{w}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\widetilde{y}^{T}\widetilde{y}-2\Sigma^{T}\widetilde{y}\widetilde{w}+\widetilde{w}^{T}\Sigma^{T}\Sigma\widetilde{w}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now if we take FOC for this equation we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-2\Sigma^{T}\widetilde{y}+2\Sigma^{T}\Sigma\widetilde{w}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Sigma^{T}\Sigma\widetilde{w}=\Sigma^{T}\widetilde{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\widetilde{w}=\left(\Sigma^{T}\Sigma\right)^{-1}\Sigma^{T}\widetilde{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+d.iii
+\end_layout
+
+\begin_layout Standard
+Using the facts that 
+\begin_inset Formula $\widetilde{y}=U^{T}y$
+\end_inset
+
+ and 
+\begin_inset Formula $\widetilde{w}=V^{T}w$
+\end_inset
+
+, if we replace in the problem we get:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\widetilde{w}=\left(\Sigma^{T}\Sigma\right)^{-1}\Sigma^{T}\widetilde{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V^{T}w=\left(\Sigma^{T}\Sigma\right)^{-1}\Sigma^{T}U^{T}y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now if we multiply by V in both sides we get:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+VV^{T}w=\left(\Sigma^{T}\Sigma\right)^{-1}V\Sigma^{T}U^{T}y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We know that 
+\begin_inset Formula $VV^{T}=I$
+\end_inset
+
+ and 
+\begin_inset Formula $X^{T}=(U\Sigma V^{T})^{T}=V\Sigma^{T}U^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w=\left(\Sigma^{T}\Sigma\right)^{-1}X^{T}y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then as we know between 
+\begin_inset Formula $\Sigma^{T}\Sigma$
+\end_inset
+
+ are more than one I matrix, and we introduce 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $U^{T}U=I$
+\end_inset
+
+ and 
+\begin_inset Formula $V^{T}V=I$
+\end_inset
+
+ and we replace by 
+\begin_inset Formula $X^{T}X$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w=\left(V\Sigma^{T}U^{T}U\Sigma V^{T}\right)^{-1}X^{T}y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+w=\left(X^{T}X\right)^{-1}X^{T}y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then we had show that we can convert 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\widetilde{w}$
+\end_inset
+
+ into the regular OLS solution.
+ Then both solutions are equivalent but in different subspaces.
+\end_layout
+
+\end_body
+\end_document
